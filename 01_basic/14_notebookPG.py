@@ -17,9 +17,9 @@ print(notebook_1.get_number_of_pages)
 notebook = None
 while True:
     menu = input('''
---------------------------------------------------------------
-1. 노트북 생성 2. 노트 추가 3. 노트 삭제 4. 노트 내용보기 5. 종료 
---------------------------------------------------------------   
+---------------------------------------------------------------
+1. 노트북 생성 2. 노트 추가 3. 노트 삭제 4. 노트 내용보기 5. 종료
+---------------------------------------------------------------
 >>> ''')
     if menu == '1':
         if notebook == None:
@@ -54,12 +54,4 @@ while True:
     elif menu == '5':
         print('종료')
         break
-
-def datasave(note):
-    with open('01_basic/14_notebookPG.py','wb') as f:
-        pickle.dump(note, f, indent = 2)
-
-def dataload(note):
-    with open("01_basic/14_notebookPG.py",'rb') as f:
-        note = pickle.load(f)
-    return note
+    
