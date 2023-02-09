@@ -36,12 +36,3 @@ class NoteBook:
     
     def get_number_of_pages(self):
         return len(self.notes.keys())
-
-    def datasave(note):
-        with open('01_basic/14_notebookPG.py','wb') as f:
-            pickle.dump(note, f, indent = 2)
-
-    def dataload(note):
-        with open("01_basic/14_notebookPG.py",'rb') as f:
-            note = pickle.load(f)
-        
