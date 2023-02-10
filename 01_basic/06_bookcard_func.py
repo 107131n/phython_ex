@@ -1,4 +1,5 @@
 import bookfunc as bf
+import pickle
 
 # 도서관리 프로그램
 # 데이터 구조는 리스트를 이용
@@ -7,6 +8,7 @@ import bookfunc as bf
 
 book = []
 book = bf.dataload(book)
+
 while True:
     menu = input('''
 ---------------------------------------------------
@@ -34,5 +36,3 @@ while True:
 
     else:
         print('메뉴를 잘못 선택하셨습니다.')
-
-bf.datasave(book)
