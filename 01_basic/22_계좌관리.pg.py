@@ -7,9 +7,18 @@
 # 종료 - 종료 시 데이터는 파일로 저장
 # 시작 - 프로그램 시작 시 데이터 파일을 로드
 
+import pickle, os
+
 from Account import Account # Account.deposit()
-import Account              # Account.Account.deposit()
+#import Account               Account.Account.deposit()
+
+path = os.path.dirname(__file__)
 account_list = []
+# with open(path + '/account.pickle', 'rb') as f:
+#     account_list = pickle.load(f)
+
+# result = list(map(lambda x:x.account_number, account_list))
+# Account.account_count = max(result)
 
 while True:
     display = '''
@@ -18,26 +27,42 @@ while True:
 --------------------------------------------------------------
 >>>  '''
     menu = input(display)
+    
     if menu == '1':
-        if account_list == None:
-            account_list = Account(input('계좌를 입력하세요 >>> '))
-        else:
-            print('생성된 계좌가 존재합니다.')
+        name = input('이름 >>> ')
+        balance = ''
+        while not balance.isdecimal():
+            balance = input('입금 금액 >>> ')
+        balance = int(balance)
+        account_list.append(Account(name, balance))
+        print('-'*50)
+        for item in account_list:
+            print(item)
 
     elif menu == '2':
-        pass
+        account_number = input('계좌번호를 입력하세요. >>> ')
+        if account_list == account_number:
+            balance + Account.amount
+        else:
+            print('계좌번호가 일치하지 않습니다.')
     elif menu == '3':
-        pass
+        account_number = input('계좌번호를 입력하세요. >>> ')
+
     elif menu == '4':
-        pass
+        account_number = input('계좌번호를 입력하세요. >>> ')
+
     elif menu == '5':
-        pass
+        account_number = input('계좌번호를 입력하세요. >>> ')
+
     elif menu == '6':
         pass
+
     elif menu == '7':
-        pass
+        print('프로그램 종료')
+        break
     else:
         print('메뉴를 잘못 선택하셨습니다.')
 
-
+with open(path + '/account.pickle', 'wb') as f:
+    pickle.dump(account_list,f)
 
