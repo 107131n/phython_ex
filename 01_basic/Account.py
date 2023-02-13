@@ -41,7 +41,7 @@ class Account:
         return f'예금주:{self.name}, 계좌번호: {self.account_number}, 잔고: {self.balance:>15,}원'
     
     
-def str2int():
+def str2int(msg):
         data = ''
         while not data.isdecimal():
             data = input(msg + '>>>')
