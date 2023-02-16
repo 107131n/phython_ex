@@ -26,7 +26,3 @@ p = re.compile('[0-9]{6}[-][1-4][0-9]{6}')
 result = p.finditer(data) #findall: 리스트로 리턴 #finditer: 객체로 리턴
 print(result) 
 for r in result : print(r)
-
-
-
-
