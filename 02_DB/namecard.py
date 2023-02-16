@@ -1,5 +1,5 @@
 import oracledb
-oracledb.init_oracle_client()
+oracledb.init_oracle_client() 
 
 '''
 drop table namecard;
@@ -12,8 +12,8 @@ start with 1;
 # 오라클은 시퀀스 만들어야 함
 '''
 def create_table():
-	with oracledb.connect('SCOTT/TIGER@localhost:1521/xe') as conn:
-		with conn.cursor() as cur:
+	with oracledb.connect('SCOTT/TIGER@localhost:1521/xe') as conn: #커넥션 #점깃이그노어 잘 활용하기
+		with conn.cursor() as cur: #커서 개체 가져옴
 			sql = '''
             create table namecard( 
 				cardid number primary key,
@@ -22,7 +22,7 @@ def create_table():
                 tel varchar2(20),
                 email varchar2(50)
 			)
-            ''' #if not exists는 오라클에서 안 됨
+            ''' #if not exists는 오라클에서 지원 안 됨
 			try:
 				cur.execute(sql)
 			except Exception as e:
@@ -47,7 +47,7 @@ def update_card():
 		with conn.cursor() as cur:
 			cardid_list = []
 			for item in cur.execute('select * from namecard'):
-				print(f'등록번호:{item[0]}. 이름:{item[1]}, 전화번호: {item[3]}, 이메일: {item[4]}, 주소: {item[2]}')
+				print(f'등록번호:{item[0]}, 이름:{item[1]}, 전화번호: {item[3]}, 이메일: {item[4]}, 주소: {item[2]}')
 				cardid_list.append(item[0])
 			key = int(input('수정할 등록 번호 >>> '))
 			if key in cardid_list:
@@ -78,7 +78,7 @@ def search_card():
 				cardid_list.append(item[0])
 			print(cardid_list)
 			key = int(input('검색할 등록번호 >>> '))
-			cur.execute('select * from namecard where cardid = :1, (key,)')
+			cur.execute('select * from namecard where cardid = :1', (key,))
 			print(cur.fetchone())	
 
 
@@ -94,6 +94,7 @@ def list_card():
 
 
 #print(__name__) #출력 시 __main__, 내 파일만 실행
+#타파일에서는 동작 안 함
 if __name__ == '__main__':
     create_table()
     # insert_card()
