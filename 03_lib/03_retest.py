@@ -23,6 +23,8 @@ kim  700905-1059119
 # print(result.groups())
 
 p = re.compile('[0-9]{6}[-][1-4][0-9]{6}')
-result = p.finditer(data) #findall: 리스트로 리턴 #finditer: 객체로 리턴
+result = p.findall(data) 
 print(result) 
 for r in result : print(r)
+
+#findall: 리스트로 리턴 #finditer: 객체로 리턴

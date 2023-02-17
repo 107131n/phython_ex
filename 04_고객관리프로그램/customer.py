@@ -1,6 +1,5 @@
 import re
 
-
 def insert_data(custlist):
     customer={'name':'','gender':'',"email":'',"birthyear":''}        
     print("고객 정보 입력")
@@ -18,7 +17,7 @@ def insert_data(custlist):
                 check = idx
                 break
         if check == None:
-            p = re.compile('@[a-z]{2,}[.][a-z]{2,}')
+            p = re.compile('@[a-z]{2,}[.][a-z]{2,}') #{n,}:앞의 문자열을 n번 이상 반복되어야 함
             if p.search(customer['email']) != None:
                 break
             else:
@@ -101,12 +100,6 @@ def update_data(custlist):
 수정할 정보가 없으면 enter >>> ''')
         if key in ('name','gender','birthyear'):
             custlist[idx][key] = input('수정할 {}를 입력하세요.'.format(key))
-
-
-
-
-
-
 
 
 
