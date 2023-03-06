@@ -1,4 +1,4 @@
-# 네이버 검색 API 예제 - 블로그 검색
+# 네이버 검색 API 예제 - 오타변환
    
 import urllib.request
 import json

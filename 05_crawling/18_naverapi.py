@@ -1,4 +1,4 @@
-# 네이버 검색 API 예제 - 블로그 검색
+# 네이버 검색 API 예제 - 뉴스
 
 import urllib.request
 import json
